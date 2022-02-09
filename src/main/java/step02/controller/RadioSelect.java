@@ -1,6 +1,7 @@
 package step02.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
@@ -36,10 +37,14 @@ public class RadioSelect extends HttpServlet {
 			request.getRequestDispatcher("radio").forward(request, response);
 		
 		} else {
-			System.out.println("---------" + id);
-			response.sendRedirect("fail");
+			
+//			System.out.println("---------" + id);
+//			response.sendRedirect("fail");
+			
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out = response.getWriter();
+			out.println("\"<script>alert('멤버를 선택해주세요'); history.go(-1);</script>");
 		}
-		
 		
 	}
 		

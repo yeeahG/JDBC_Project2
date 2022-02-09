@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/fail")
 public class FailView extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,8 +26,9 @@ public class FailView extends HttpServlet {
 		
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
-		out.println("id가 없습니다");
+		out.println("\"<script>alert('id가 틀렸습니다'); history.go(-1);</script>");
+		out.close();
+
 	}
-	
 	
 }
